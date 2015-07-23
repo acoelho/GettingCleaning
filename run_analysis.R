@@ -42,9 +42,11 @@ selData <- mutate(selData, Activity = activities[selData$Activity,2])
 
 #4 Appropriately label the data set with descriptive variable names.
 ## This was actually started in step 1 when loading the data (lines 15 and 20)
+## read.table converts '(', ')' and '-' to '.' ; these steps clean up 
 names(selData) <- gsub("[[:punct:]]"," ",names(selData))
 names(selData) <- gsub("   "," ",names(selData))
-
+names(selData) <- gsub("  ","",names(selData))
+names(selData) <- gsub(" ",".",names(selData))
 
 #5 Create a second, independent tidy data set with the average of each variable for each activity and each subject.
 final <- aggregate(. ~ Subject + Activity, selData, mean)
