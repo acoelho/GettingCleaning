@@ -41,7 +41,7 @@ activities[,2]<-gsub("_", " ", activities[,2])
 selData <- mutate(selData, Activity = activities[selData$Activity,2])
 
 #4 Appropriately label the data set with descriptive variable names.
-## This was actually started in step 1 when loading the data (lines 19 and 24)
+## This was actually started in step 1 when loading the data (lines 15 and 20)
 names(selData) <- gsub("[[:punct:]]"," ",names(selData))
 names(selData) <- gsub("   "," ",names(selData))
 
