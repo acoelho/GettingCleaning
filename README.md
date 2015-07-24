@@ -2,7 +2,7 @@ Getting and Cleaning Data Class Project
 =======================================
 
 ##Introduction
-This repository contains a script (run_analysis.R) designed to read data from [UCI's Human Activity Recognition Using Smartphones Data Set](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) and transform it into a tidy data set. Details can be found in the [Codebook.](https://github.com/acoelho/GettingCleaning/blob/master/CODEBOOK.md)  
+This repository contains a script, [run_analysis.R](https://github.com/acoelho/GettingCleaning/blob/master/run_analysis.R), designed to read data from [UCI's Human Activity Recognition Using Smartphones Data Set](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) and transform it into a tidy data set. Details can be found in the [Codebook.](https://github.com/acoelho/GettingCleaning/blob/master/CODEBOOK.md)  
 
 
 ##Data
@@ -40,5 +40,5 @@ Source the script with
    
 The script will create a tidy data set in a file called "tidy_data.txt", which can be read and viewed in R with:
 
-    data <- read.table("tidy_data.txt", header = TRUE) 
+    data <- read.table("tidy_data.txt", header = TRUE, colClasses=c("Subject" = "factor")) 
     View(data)

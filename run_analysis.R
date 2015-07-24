@@ -38,7 +38,7 @@ selData <- fulData[,selFeatures]
 activities <- read.table("./UCI HAR Dataset/activity_labels.txt")
 activities[,2]<-tolower(activities[,2])
 activities[,2]<-gsub("_", " ", activities[,2])
-selData <- mutate(selData, Activity = activities[selData$Activity,2])
+selData <- mutate(selData, Activity = factor(activities[selData$Activity,2]), Subject = factor(selData$Subject))
 
 #4 Appropriately label the data set with descriptive variable names.
 ## This was actually started in step 1 when loading the data (lines 15 and 20)
@@ -55,5 +55,5 @@ final <- final[order(final$Subject,final$Activity),]
 write.table(final, "tidy_data.txt", row.name=FALSE)
 
 # Command to read the tidy data set:
-# data <- read.table("tidy_data.txt", header = TRUE) 
+# data <- read.table("tidy_data.txt", header = TRUE, colClasses=c("Subject" = "factor")) 
 # View(data)
